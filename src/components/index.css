@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap");
+
+#main-container {
+  background-color: #f0e9dc;
+  min-height: 100vh;
+}
+.homepage-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.purple-text {
+  color: #aaa0e5;
+  font-family: "Baskervville", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 5em;
+}
+
+/* .max-height {
+  min-height: 25vh;
+} */
+.max-height {
+  min-height: 250px;
+}
+
+.bottom-border {
+  border-bottom: 1px solid black;
+}
+.border-left {
+  border-left: 1px solid black;
+}
+.border-right {
+  border-right: 1px solid black;
+}
+
+.side-margin {
+  margin-inline: 50px;
+  height: 50px;
+}
+.border-top-bottom {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  max-width: calc(100vw - 2px);
+}
