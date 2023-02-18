@@ -281,11 +281,83 @@
     rgba(148, 230, 233, 0.6951374299719888) 100%
   );
 }
+.circle-container-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  border: 1px solid white;
+  width: 470px;
+  height: 470px;
+}
 
 .circle {
-  height: 50vh;
-  width: 50vh;
+  /* height: 50vh;
+  width: 50vh; */
+
+  height: 100px;
+  width: 100px;
   aspect-ratio: 1/1;
-  border: 10px solid white;
+  border: 1px solid white;
   border-radius: 50%;
+  background-color: #aaa0e5;
+  z-index: 2;
+  position: absolute;
+}
+
+.c-1 {
+  top: -10%;
+  left: -10%;
+  /* background: url("../assets/9132ff56a0ef21af6802edc6b84e42e6.jpg"); */
+  background-size: cover;
+  background-position: center;
+}
+.c-2 {
+  bottom: -10%;
+  left: -10%;
+  background: url("../assets/e7cdb31759866f0fefe35f369a456af1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.c-3 {
+  top: -10%;
+  right: -10%;
+  background: url("../assets/quiz\ results\ cropped.png");
+  background-size: cover;
+  background-position: center;
+}
+.c-4 {
+  bottom: -10%;
+  right: -10%;
+  background: url("../assets/f38c14ff0c01612edf85603b6be8fd20.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.circle-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 250px;
+  height: 250px;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  border: 1px solid white;
+}
+
+.circle-container:hover {
+  transform: rotate(90deg);
+}
+
+.circle-connection {
+  height: 200px;
+  width: 200px;
+  border: 5px solid white;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  position: relative;
 }
