@@ -1,24 +1,121 @@
 import React from "react"
-import { Col, Container, Row, Image } from "react-bootstrap"
 import test from "../assets/9132ff56a0ef21af6802edc6b84e42e6.jpg"
 import changedimage from "../assets/e7cdb31759866f0fefe35f369a456af1.jpg"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { WiStars } from "react-icons/wi"
+import { BsFillArrowRightCircleFill, BsFillArrowDownCircleFill } from "react-icons/bs"
 
 export default function Homepage() {
   const [moved, setMoved] = useState(false)
   const [angle, setAngle] = useState(0)
+  const [newimage, setNewImage] = useState(test)
+  const [textNumber, setTextNumber] = useState(1)
+  const [down, showDown] = useState(false)
+  const [up, showUp] = useState(true)
+
+  const intro = "introduction text"
+
+  const [displayText, setDisplayText] = useState(intro)
+  const textArr = ["text from array [0]", "text from array [1]", "text from array [02]", "text from array [3]"]
 
   const handleHover = () => {
-    setAngle(angle + 90)
     setMoved(true)
-    if (angle + 90 === 450) {
+    showDown(true)
+    // setTextNumber(1)
+    if (angle + 90 === 270) {
+      showUp(false)
+      setAngle(270)
+      setTextNumber(4)
+      let textToShow = textArr[3]
+      setDisplayText(textToShow)
+    } else {
+      setAngle(angle + 90)
+      showUp(true)
+      setTextNumber(textNumber + 1)
+      let textToShow = textArr[textNumber]
+
+      setDisplayText(textToShow)
+    }
+  }
+  const handleHoverAnti = () => {
+    setMoved(true)
+    if (angle - 90 === 0) {
+      showUp(true)
+      showDown(false)
       setAngle(0)
+      setTextNumber(1)
+      setDisplayText(textArr[0])
+    } else {
+      showUp(true)
+      setAngle(angle - 90)
+      setTextNumber(textNumber - 1)
+      setDisplayText(textArr[textNumber - 2])
+      if (angle - 90 === 0) {
+        showDown(false)
+      }
     }
   }
 
-  const newimage = moved ? changedimage : test
+  // const handleHoverAnti = () => {
+  //   setMoved(true)
+  //   if (angle - 90 === 0) {
+  //     showUp(true)
+  //     showDown(false)
+  //     setAngle(0)
+  //     setTextNumber(1)
+  //     // let textToShow = textArr[textNumber]
+  //     // setDisplayText(textToShow)
+  //     if (textNumber === 4) {
+  //       setDisplayText(textArr[3])
+  //     }
+  //     if (textNumber === 3) {
+  //       setDisplayText(textArr[2])
+  //     }
+  //     if (textNumber === 2) {
+  //       setDisplayText(textArr[1])
+  //     }
+  //     if (textNumber === 1) {
+  //       setDisplayText(textArr[0])
+  //     }
+  //   } else {
+  //     showUp(true)
+  //     setAngle(angle - 90)
+  //     setTextNumber(textNumber - 1)
+  //     if (textNumber === 4) {
+  //       setDisplayText(textArr[3])
+  //     }
+  //     if (textNumber === 3) {
+  //       setDisplayText(textArr[2])
+  //     }
+  //     if (textNumber === 2) {
+  //       setDisplayText(textArr[1])
+  //     }
+  //     if (textNumber === 1) {
+  //       setDisplayText(textArr[0])
+  //     }
+
+  //     if (angle - 90 === 0) {
+  //       showDown(false)
+  //     }
+  //   }
+  // }
+
+  useEffect(() => {
+    console.log("angle after update:", angle)
+    console.log("text number after update:", textNumber)
+    console.log("text to show after update:", displayText)
+  }, [angle, textNumber, displayText])
+
+  useEffect(() => {
+    if (moved) {
+      setTimeout(() => {
+        setNewImage(changedimage)
+      }, 0)
+    } else {
+      setNewImage(test)
+    }
+  }, [textNumber, displayText, angle])
 
   return (
     <div className="homepage-wrapper">
@@ -57,14 +154,26 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className="side-margin border-left max-height text-white">{angle}</div>
+        <div className="side-margin border-left max-height text-white">
+          {textNumber} : {displayText} : angle{angle}
+        </div>
       </div>
-      <div className="d-flex justify-content-end">
-        <div className=" circle-container-wrapper">
+      <div className="d-flex justify-content-end ">
+        <div className=" circle-container-wrapper  ">
+          {up && (
+            <span onMouseEnter={handleHover} className="arrow" id="arrow-1">
+              <BsFillArrowRightCircleFill />
+            </span>
+          )}
+          {down && (
+            <span onMouseEnter={handleHoverAnti} className="arrow" id="arrow-2">
+              <BsFillArrowDownCircleFill />
+            </span>
+          )}
+
           <div
             className="d-flex flex-wrap circle-container align-self-end justify-content-between "
             style={{ transform: `rotate(${angle}deg)` }}
-            onMouseEnter={handleHover}
           >
             <div className=" circle-connection">
               <div
@@ -74,19 +183,33 @@ export default function Homepage() {
                   transition: "transform 1s ease-in-out",
                   backgroundImage: `url(${newimage})`
                 }}
-              ></div>
+              >
+                {" "}
+                {moved ? <span>CIRCLE 1</span> : <span>INTRO</span>}
+              </div>
               <div
                 className="circle c-2"
-                style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
-              ></div>
+                style={{
+                  transform: `rotate(-${angle}deg)`,
+                  transition: "transform 1s ease-in-out"
+                }}
+              >
+                {" "}
+                CIRCLE 2
+              </div>
               <div
                 className="circle c-3"
                 style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
-              ></div>
+              >
+                {" "}
+                CIRCLE 3
+              </div>
               <div
                 className="circle c-4"
                 style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
-              ></div>
+              >
+                CIRCLE 4
+              </div>
             </div>
           </div>
         </div>
