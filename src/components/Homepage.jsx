@@ -1,8 +1,14 @@
 import React from "react"
 import test from "../assets/9132ff56a0ef21af6802edc6b84e42e6.jpg"
-import changedimage from "../assets/e7cdb31759866f0fefe35f369a456af1.jpg"
+import changedimage from "../assets/sky.jpg"
+import { Image } from "react-bootstrap"
 import { useState, useEffect } from "react"
-
+import linkedinLogo from "../assets/In-White-96.png"
+import githubLogo from "../assets/github-mark-white.png"
+import linkedinHomepage from "../assets/linkedin-homepage.png"
+import linkedinME from "../assets/linkedin-me.png"
+import linkedinNetwork from "../assets/linkedin-network.png"
+import linkedinSearch from "../assets/linkedin-search.png"
 import { WiStars } from "react-icons/wi"
 import { BsFillArrowRightCircleFill, BsFillArrowDownCircleFill } from "react-icons/bs"
 
@@ -13,28 +19,40 @@ export default function Homepage() {
   const [textNumber, setTextNumber] = useState(1)
   const [down, showDown] = useState(false)
   const [up, showUp] = useState(true)
+  const [images, setImages] = useState([])
 
   const intro = "introduction text"
 
   const [displayText, setDisplayText] = useState(intro)
   const textArr = ["text from array [0]", "text from array [1]", "text from array [02]", "text from array [3]"]
+  const linkedinImages = [linkedinHomepage, linkedinME, linkedinNetwork, linkedinSearch]
+
+  const handleImages = () => {
+    if (angle === 90) {
+      setImages(linkedinImages)
+    } else {
+      setImages([])
+    }
+  }
 
   const handleHover = () => {
     setMoved(true)
     showDown(true)
-    // setTextNumber(1)
     if (angle + 90 === 270) {
       showUp(false)
       setAngle(270)
       setTextNumber(4)
       let textToShow = textArr[3]
       setDisplayText(textToShow)
+      console.log("angle", angle)
+      // handleImages()
     } else {
       setAngle(angle + 90)
       showUp(true)
       setTextNumber(textNumber + 1)
       let textToShow = textArr[textNumber]
-
+      console.log("angle", angle)
+      // handleImages()
       setDisplayText(textToShow)
     }
   }
@@ -46,65 +64,26 @@ export default function Homepage() {
       setAngle(0)
       setTextNumber(1)
       setDisplayText(textArr[0])
+      console.log("angle", angle)
+      // handleImages()
     } else {
       showUp(true)
       setAngle(angle - 90)
       setTextNumber(textNumber - 1)
       setDisplayText(textArr[textNumber - 2])
+      console.log("angle", angle)
+      // handleImages()
       if (angle - 90 === 0) {
         showDown(false)
       }
     }
   }
 
-  // const handleHoverAnti = () => {
-  //   setMoved(true)
-  //   if (angle - 90 === 0) {
-  //     showUp(true)
-  //     showDown(false)
-  //     setAngle(0)
-  //     setTextNumber(1)
-  //     // let textToShow = textArr[textNumber]
-  //     // setDisplayText(textToShow)
-  //     if (textNumber === 4) {
-  //       setDisplayText(textArr[3])
-  //     }
-  //     if (textNumber === 3) {
-  //       setDisplayText(textArr[2])
-  //     }
-  //     if (textNumber === 2) {
-  //       setDisplayText(textArr[1])
-  //     }
-  //     if (textNumber === 1) {
-  //       setDisplayText(textArr[0])
-  //     }
-  //   } else {
-  //     showUp(true)
-  //     setAngle(angle - 90)
-  //     setTextNumber(textNumber - 1)
-  //     if (textNumber === 4) {
-  //       setDisplayText(textArr[3])
-  //     }
-  //     if (textNumber === 3) {
-  //       setDisplayText(textArr[2])
-  //     }
-  //     if (textNumber === 2) {
-  //       setDisplayText(textArr[1])
-  //     }
-  //     if (textNumber === 1) {
-  //       setDisplayText(textArr[0])
-  //     }
-
-  //     if (angle - 90 === 0) {
-  //       showDown(false)
-  //     }
-  //   }
-  // }
-
   useEffect(() => {
     console.log("angle after update:", angle)
     console.log("text number after update:", textNumber)
     console.log("text to show after update:", displayText)
+    handleImages()
   }, [angle, textNumber, displayText])
 
   useEffect(() => {
@@ -112,10 +91,8 @@ export default function Homepage() {
       setTimeout(() => {
         setNewImage(changedimage)
       }, 0)
-    } else {
-      setNewImage(test)
     }
-  }, [textNumber, displayText, angle])
+  }, [newimage, images])
 
   return (
     <div className="homepage-wrapper">
@@ -124,23 +101,53 @@ export default function Homepage() {
         <div className=" arch-underlay"></div>
         <div className=" arch-underlay-2"></div>
       </div>
-      <div className="arch-large d-flex">
-        <p className="align-self-end">
-          Hi! I'm Aneesah, aka annoinspace. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae modi
-          aperiam alias perferendis consequuntur ipsa veniam inventore sapiente harum. Tenetur corrupti quaerat
-          similique reiciendis magnam accusamus incidunt tempora magni tempore. Lorem ipsum dolor sit amet, consectetur
-          adipisicing elit. Vel laudantium beatae illum inventore quasi nobis amet soluta esse et omnis deleniti,
-          officia quibusdam sit voluptatum quod voluptate blanditiis quidem. Ullam!
-        </p>
+
+      {/* {moved === false && (
+        <div className="arch-large d-flex">
+          <p className="align-self-end">
+            Hi! I'm Aneesah, aka annoinspace. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae modi
+            aperiam alias perferendis consequuntur ipsa veniam inventore sapiente harum. Tenetur corrupti quaerat
+            similique reiciendis magnam accusamus incidunt tempora magni tempore. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Vel laudantium beatae illum inventore quasi nobis amet soluta esse et omnis
+            deleniti, officia quibusdam sit voluptatum quod voluptate blanditiis quidem. Ullam!
+          </p>
+        </div>
+      )} */}
+      <div className="d-flex justify-content-between bottom-border top-section">
+        <div className="side-margin border-right h-100"></div>
+        <div className="text-white d-flex w-100">
+          <div className=" d-flex justify-content-end align-items-center  w-100">
+            <a href="https://www.linkedin.com/in/aneesah-almas-khan/" style={{ color: "transparent" }}>
+              <Image
+                src={linkedinLogo}
+                className="logoFilter"
+                style={{
+                  height: "30px",
+                  width: "30px",
+                  color: "white",
+                  marginRight: "10px"
+                }}
+              />{" "}
+            </a>
+            <a href="https://github.com/annoinspace" style={{ color: "transparent" }}>
+              <Image
+                src={githubLogo}
+                className="logoFilter"
+                style={{
+                  height: "30px",
+                  width: "30px",
+                  color: "white"
+                }}
+              />
+            </a>
+          </div>
+        </div>
+        <div className="side-margin border-left h-100"></div>
       </div>
-      <div className="d-flex justify-content-between bottom-border ">
-        <div className="side-margin border-right"></div>
-        <div className="side-margin border-left"></div>
-      </div>
-      <div className="d-flex  bottom-border ">
-        <div className="side-margin border-right max-height"></div>
+      <div className="d-flex bottom-border ">
+        <div className="side-margin border-right h-100 "></div>
         <div className="max-height d-flex flex-column justify-content-center align-items-center top ">
-          <div className="purple-text mr mt-4 d-flex">
+          <div className="purple-text mr h-100 mt-4 d-flex">
             ANNO
             <span className="flare"></span>
           </div>
@@ -156,17 +163,63 @@ export default function Homepage() {
 
         <div className="side-margin border-left max-height text-white">
           {textNumber} : {displayText} : angle{angle}
+          {moved === false && <div>have a lot at some of my projects </div>}
+          {moved === true && angle === 0 && <div>find me here</div>}
+          {angle === 90 && <div>linkedin images</div>}
+          {angle === 180 && <div>spotify images</div>}
+          {angle === 270 && <div>netflix</div>}
+          {/* <div
+            className="border"
+            style={{
+              height: "30px",
+              width: "50px"
+            }}
+          ></div>
+          <div
+            className="border"
+            style={{
+              height: "30px",
+              width: "50px"
+            }}
+          ></div>
+          <div
+            className="border"
+            style={{
+              height: "30px",
+              width: "50px"
+            }}
+          ></div>
+          <div
+            className="border"
+            style={{
+              height: "30px",
+              width: "50px"
+            }}
+          ></div> */}
         </div>
       </div>
-      <div className="d-flex justify-content-end ">
+      <div className="d-flex justify-content-between ">
+        {images.map((image, i) => (
+          <div
+            key={image}
+            className="border"
+            style={{
+              height: "180px",
+              width: "320px",
+              backgroundImage: `url(${image})`,
+              backgroundSize: "cover"
+            }}
+          ></div>
+        ))}
+        <div>images div </div>
         <div className=" circle-container-wrapper  ">
           {up && (
-            <span onMouseEnter={handleHover} className="arrow" id="arrow-1">
+            <span onClick={handleHover} className="arrow" id="arrow-1">
               <BsFillArrowRightCircleFill />
             </span>
           )}
           {down && (
-            <span onMouseEnter={handleHoverAnti} className="arrow" id="arrow-2">
+            <span onClick={handleHoverAnti} className="arrow" id="arrow-2">
               <BsFillArrowDownCircleFill />
             </span>
           )}
@@ -188,13 +241,15 @@ export default function Homepage() {
                 {moved ? <span>CIRCLE 1</span> : <span>INTRO</span>}
               </div>
               <div
-                className="circle c-2"
+                className="circle c-2 d-flex justify-content-center align-items-center"
                 style={{
                   transform: `rotate(-${angle}deg)`,
                   transition: "transform 1s ease-in-out"
+                  // backgroundImage: `url(${linkedinHomepage})`
                 }}
               >
                 {" "}
+                <div className="">Linkedin Clone</div>
                 CIRCLE 2
               </div>
               <div
