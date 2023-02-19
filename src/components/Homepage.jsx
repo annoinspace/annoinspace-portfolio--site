@@ -1,38 +1,29 @@
 import React from "react"
-import test from "../assets/9132ff56a0ef21af6802edc6b84e42e6.jpg"
 import changedimage from "../assets/sky.jpg"
 import { Image } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import linkedinLogo from "../assets/In-White-96.png"
 import githubLogo from "../assets/github-mark-white.png"
 import linkedinHomepage from "../assets/linkedin-homepage.png"
-import linkedinME from "../assets/linkedin-me.png"
 import linkedinSearch from "../assets/linkedin-search.png"
-import quizStart from "../assets/welcome-page.png"
-import quizQuestion from "../assets/quizquestion.png"
-import quizResults from "../assets/quiz-results.png"
-import quizReview from "../assets/rateus-page.png"
 import spotifyAlbum from "../assets/album-page.png"
 import spotifySearch from "../assets/search-page.png"
-
 import { WiStars } from "react-icons/wi"
 import weather from "../assets/weather-app.png"
 import weatherSearch from "../assets/weather-app-search.png"
-// import weatherStart
 import { BsFillArrowRightCircleFill, BsFillArrowDownCircleFill } from "react-icons/bs"
+import arrow from "../assets/arrow.png"
 
 export default function Homepage() {
   const [moved, setMoved] = useState(false)
   const [angle, setAngle] = useState(0)
-  const [newimage, setNewImage] = useState(test)
+  const [newimage, setNewImage] = useState(changedimage)
   const [textNumber, setTextNumber] = useState(1)
   const [down, showDown] = useState(false)
   const [up, showUp] = useState(true)
   const [images, setImages] = useState([])
   const [captions, setCaptions] = useState([])
-
   const intro = "introduction text"
-
   const [displayText, setDisplayText] = useState(intro)
   const textArr = ["text from array [0]", "text from array [1]", "text from array [02]", "text from array [3]"]
   const linkedinImages = [linkedinHomepage, linkedinSearch]
@@ -125,17 +116,6 @@ export default function Homepage() {
         <div className=" arch-underlay-2"></div>
       </div>
 
-      {/* {moved === false && (
-        <div className="arch-large d-flex">
-          <p className="align-self-end">
-            Hi! I'm Aneesah, aka annoinspace. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae modi
-            aperiam alias perferendis consequuntur ipsa veniam inventore sapiente harum. Tenetur corrupti quaerat
-            similique reiciendis magnam accusamus incidunt tempora magni tempore. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Vel laudantium beatae illum inventore quasi nobis amet soluta esse et omnis
-            deleniti, officia quibusdam sit voluptatum quod voluptate blanditiis quidem. Ullam!
-          </p>
-        </div>
-      )} */}
       <div className="d-flex justify-content-between bottom-border top-section">
         <div className="side-margin border-right h-100"></div>
         <div className="text-white d-flex w-100">
@@ -184,25 +164,43 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className="side-margin border-left max-height text-white">
-          {textNumber} : {displayText} : angle{angle}
-          {moved === false && <div>have a lot at some of my projects </div>}
+        <div className="side-margin border-left max-height text-white w-100 d-flex justify-content-center align-items-center ">
+          {/* {textNumber} : {displayText} : angle{angle} */}
+
+          {moved === false && (
+            <section className="hello">
+              <h1>hi! i'm Aneesah, aka Annoinspace.</h1>
+            </section>
+          )}
           {moved === true && angle === 0 && <div>find me here</div>}
           {angle === 90 && <div>linkedin images</div>}
           {angle === 180 && <div>spotify images</div>}
           {angle === 270 && <div>weather app</div>}
         </div>
       </div>
-      <div className="d-flex justify-content-between h-100 ">
-        <div>
-          <div className="d-flex w-75 mll gap-4">
+      <div className="d-flex justify-content-between h-100 w-100">
+        <div className="h-100 w-100">
+          <div className="d-flex w-75 mll gap-4 text-white  ">
+            {moved === false && (
+              <section className="w-75 intro d-flex flex-column">
+                <p>I have always dreamed of being a coder.</p>
+                <p>
+                  After exploring a creative career path, I was left feeling like there was so much more I could do with
+                  my creative & technical skillset, so I took the leap into web development and haven't looked back!{" "}
+                </p>
+
+                <p className="align-self-end">Take a brief look at a few of my favourite projects!</p>
+
+                <Image src={arrow} className="curly-arrow" />
+              </section>
+            )}
             {images.map((image, i) => (
               <div
                 key={i}
                 className=""
                 style={{
-                  height: "250px",
-                  width: "565px",
+                  minHeight: "250px",
+                  minWidth: "440px",
                   backgroundImage: `url(${image})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -212,9 +210,13 @@ export default function Homepage() {
               ></div>
             ))}
           </div>
-          <div className="d-flex w-75 mll gap-4 justify-content-around mt-1 ">
+          <div className="d-flex w-75 mll gap-4  mt-1  ">
             {captions.map((caption, i) => (
-              <div key={i} className="" style={{ color: "#c2baef", transition: "transform 1s ease-in-out" }}>
+              <div
+                key={i}
+                className=" text-center"
+                style={{ minWidth: "440px", color: "#c2baef", transition: "transform 1s ease-in-out" }}
+              >
                 {caption}
               </div>
             ))}
@@ -253,7 +255,6 @@ export default function Homepage() {
                 style={{
                   transform: `rotate(-${angle}deg)`,
                   transition: "transform 1s ease-in-out"
-                  // backgroundImage: `url(${linkedinHomepage})`
                 }}
               >
                 {" "}

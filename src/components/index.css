@@ -369,3 +369,18 @@
   bottom: 50px;
   right: 110px;
 }
+.intro {
+  position: relative;
+}
+.curly-arrow {
+  position: absolute;
+  z-index: 5;
+  top: 69%;
+  right: -10%;
+  -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1);
+  transform: scaleX(-1) rotate(125deg);
+  height: 100px;
+
+  opacity: 90%;
+}
