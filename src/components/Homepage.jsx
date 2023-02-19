@@ -7,9 +7,18 @@ import linkedinLogo from "../assets/In-White-96.png"
 import githubLogo from "../assets/github-mark-white.png"
 import linkedinHomepage from "../assets/linkedin-homepage.png"
 import linkedinME from "../assets/linkedin-me.png"
-import linkedinNetwork from "../assets/linkedin-network.png"
 import linkedinSearch from "../assets/linkedin-search.png"
+import quizStart from "../assets/welcome-page.png"
+import quizQuestion from "../assets/quizquestion.png"
+import quizResults from "../assets/quiz-results.png"
+import quizReview from "../assets/rateus-page.png"
+import spotifyAlbum from "../assets/album-page.png"
+import spotifySearch from "../assets/search-page.png"
+
 import { WiStars } from "react-icons/wi"
+import weather from "../assets/weather-app.png"
+import weatherSearch from "../assets/weather-app-search.png"
+// import weatherStart
 import { BsFillArrowRightCircleFill, BsFillArrowDownCircleFill } from "react-icons/bs"
 
 export default function Homepage() {
@@ -20,18 +29,32 @@ export default function Homepage() {
   const [down, showDown] = useState(false)
   const [up, showUp] = useState(true)
   const [images, setImages] = useState([])
+  const [captions, setCaptions] = useState([])
 
   const intro = "introduction text"
 
   const [displayText, setDisplayText] = useState(intro)
   const textArr = ["text from array [0]", "text from array [1]", "text from array [02]", "text from array [3]"]
-  const linkedinImages = [linkedinHomepage, linkedinME, linkedinNetwork, linkedinSearch]
+  const linkedinImages = [linkedinHomepage, linkedinSearch]
+  const linkedInText = ["Feed Page", "Connections Page"]
+  const spotifyImages = [spotifyAlbum, spotifySearch]
+  const SpotifyText = ["Album Page", "Search Page"]
+  const weatherAppImages = [weather, weatherSearch]
+  const weatherText = ["Initial Search Page", "Results Page"]
 
   const handleImages = () => {
     if (angle === 90) {
       setImages(linkedinImages)
+      setCaptions(linkedInText)
+    } else if (angle === 180) {
+      setImages(spotifyImages)
+      setCaptions(SpotifyText)
+    } else if (angle === 270) {
+      setImages(weatherAppImages)
+      setCaptions(weatherText)
     } else {
       setImages([])
+      setCaptions([])
     }
   }
 
@@ -167,51 +190,36 @@ export default function Homepage() {
           {moved === true && angle === 0 && <div>find me here</div>}
           {angle === 90 && <div>linkedin images</div>}
           {angle === 180 && <div>spotify images</div>}
-          {angle === 270 && <div>netflix</div>}
-          {/* <div
-            className="border"
-            style={{
-              height: "30px",
-              width: "50px"
-            }}
-          ></div>
-          <div
-            className="border"
-            style={{
-              height: "30px",
-              width: "50px"
-            }}
-          ></div>
-          <div
-            className="border"
-            style={{
-              height: "30px",
-              width: "50px"
-            }}
-          ></div>
-          <div
-            className="border"
-            style={{
-              height: "30px",
-              width: "50px"
-            }}
-          ></div> */}
+          {angle === 270 && <div>weather app</div>}
         </div>
       </div>
-      <div className="d-flex justify-content-between ">
-        {images.map((image, i) => (
-          <div
-            key={image}
-            className="border"
-            style={{
-              height: "180px",
-              width: "320px",
-              backgroundImage: `url(${image})`,
-              backgroundSize: "cover"
-            }}
-          ></div>
-        ))}
-        <div>images div </div>
+      <div className="d-flex justify-content-between h-100 ">
+        <div>
+          <div className="d-flex w-75 mll gap-4">
+            {images.map((image, i) => (
+              <div
+                key={i}
+                className=""
+                style={{
+                  height: "250px",
+                  width: "565px",
+                  backgroundImage: `url(${image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  transition: "transform 1s ease-in-out",
+                  borderRadius: "10px"
+                }}
+              ></div>
+            ))}
+          </div>
+          <div className="d-flex w-75 mll gap-4 justify-content-around mt-1 ">
+            {captions.map((caption, i) => (
+              <div key={i} className="" style={{ color: "#c2baef", transition: "transform 1s ease-in-out" }}>
+                {caption}
+              </div>
+            ))}
+          </div>
+        </div>
         <div className=" circle-container-wrapper  ">
           {up && (
             <span onClick={handleHover} className="arrow" id="arrow-1">
@@ -253,16 +261,18 @@ export default function Homepage() {
                 CIRCLE 2
               </div>
               <div
-                className="circle c-3"
+                className="circle c-3 d-flex justify-content-center align-items-center"
                 style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
               >
                 {" "}
+                <div className="">Spotify</div>
                 CIRCLE 3
               </div>
               <div
-                className="circle c-4"
+                className="circle c-4 d-flex justify-content-center align-items-center"
                 style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
               >
+                <div className="">Weather App</div>
                 CIRCLE 4
               </div>
             </div>
