@@ -442,3 +442,148 @@
     aspect-ratio: 16/9;
   }
 }
+@media screen and (max-width: 600px) {
+  .homepage-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  #header-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+    justify-content: center;
+    position: relative;
+
+    min-height: 200px;
+  }
+  #header-left {
+    display: none;
+    margin: 0;
+  }
+  #anno-header {
+    margin-right: 0;
+  }
+  #annoinspace-wrapper {
+    margin-top: 0;
+    display: inline-block;
+    min-width: 100vw;
+    position: absolute;
+
+    padding: 0;
+    height: auto;
+  }
+  #header-info {
+    margin: 0;
+    justify-content: center;
+    border: 1px solid red;
+    position: absolute;
+    top: 100%;
+  }
+  .hello {
+    align-self: flex-start;
+    border: 1px solid rgb(255, 242, 0);
+    min-width: 100vw;
+  }
+  .hello h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+  .max-height {
+    min-height: 300px;
+  }
+  .header-left {
+    display: none;
+  }
+  #bottom-wrapper {
+    border: 1px solid yellow;
+  }
+  p {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  #text-carousel-wrapper {
+    min-width: 100vw;
+    border: 1px solid blue;
+  }
+
+  .circle-connection {
+    height: 100px;
+    width: 100px;
+    border: 5px solid white;
+    background-color: #32334b;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    position: relative;
+  }
+  .circle-container {
+    position: absolute;
+    top: 280px;
+    left: 320px;
+    width: 210px;
+    height: 210px;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+  }
+  .circle {
+    /* height: 50vh;
+    width: 50vh; */
+    height: 100px;
+    width: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #aaa0e5;
+    z-index: 2;
+    position: absolute;
+    color: white;
+  }
+  .purple-text-darker {
+    font-size: 18px;
+  }
+
+  .c-1 {
+    display: none;
+    opacity: 0;
+    top: -35%;
+    left: -35%;
+    background-size: cover;
+    background-position: center;
+  }
+  .c-2 {
+    display: none;
+    opacity: 0;
+    bottom: -35%;
+    left: -35%;
+    background-size: cover;
+    background-position: center;
+  }
+  .c-3 {
+    display: none;
+    opacity: 0;
+    bottom: -35%;
+    right: -35%;
+    background-size: cover;
+
+    background-position: center;
+  }
+  .c-4 {
+    opacity: 0;
+    display: none;
+    top: -35%;
+    right: -35%;
+
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.pink {
+  background-color: pink;
+}

@@ -156,10 +156,13 @@ export default function Homepage() {
         </div>
         <div className="side-margin border-left h-100"></div>
       </div>
-      <div className="d-flex bottom-border ">
-        <div className="side-margin border-right h-100 "></div>
-        <div className="max-height d-flex flex-column justify-content-center align-items-center top ">
-          <div className="purple-text mr h-100 mt-4 d-flex">
+      <div id="header-wrapper" className="d-flex bottom-border ">
+        <div id="header-left" className="side-margin border-right h-100  "></div>
+        <div
+          id="annoinspace-wrapper"
+          className="max-height d-flex flex-column justify-content-center align-items-center top"
+        >
+          <div id="anno-header" className="purple-text  mr h-100 mt-4 d-flex">
             ANNO
             <span className="flare"></span>
           </div>
@@ -173,7 +176,10 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className="side-margin border-left ml-5 max-height text-white w-100 d-flex  align-items-center ">
+        <div
+          id="header-info"
+          className="side-margin border-left ml-5 max-height text-white w-100 d-flex  align-items-center "
+        >
           {moved === false && (
             <section className="hello">
               <h1>hi! i'm Aneesah, aka Annoinspace.</h1>
@@ -229,9 +235,9 @@ export default function Homepage() {
           )}
         </div>
       </div>
-      <div className="d-flex justify-content-center h-100 w-100 ">
+      <div id="bottom-wrapper" className="d-flex justify-content-center h-100 w-100 ">
         <div className="h-100 w-100 d-flex justify-content-center align-items-center ">
-          <div className="d-flex w-75 mll  text-white  h-100">
+          <div id="text-carousel-wrapper" className="d-flex w-75 mll  text-white  h-100">
             {moved === false && (
               <section className="w-75 intro d-flex flex-column">
                 <p>I have always dreamed of being a coder.</p>
