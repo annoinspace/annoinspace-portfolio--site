@@ -1,11 +1,12 @@
 import React from "react"
 import changedimage from "../assets/sky.jpg"
-import { Image } from "react-bootstrap"
+import { Image, Carousel } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import linkedinLogo from "../assets/In-White-96.png"
 import githubLogo from "../assets/github-mark-white.png"
 import linkedinHomepage from "../assets/linkedin-homepage.png"
 import linkedinSearch from "../assets/linkedin-search.png"
+import linkedinme from "../assets/linkedin-me.png"
 import spotifyAlbum from "../assets/album-page.png"
 import spotifySearch from "../assets/search-page.png"
 import { WiStars } from "react-icons/wi"
@@ -13,6 +14,14 @@ import weather from "../assets/weather-app.png"
 import weatherSearch from "../assets/weather-app-search.png"
 import { BsFillArrowRightCircleFill, BsFillArrowDownCircleFill } from "react-icons/bs"
 import arrow from "../assets/arrow.png"
+import bootstrap from "../assets/Bootstrap-logo.png"
+import reactlogo from "../assets/react-logo.png"
+import reduxlogo from "../assets/redux-logo.png"
+import nodejslogo from "../assets/node-js.png"
+import mongodblogo from "../assets/mongoDb.png"
+import htmllogo from "../assets/HTML5_Badge.png"
+import csslogo from "../assets/CSS3_logo.png"
+import jslogo from "../assets/javascript-logo.png"
 
 export default function Homepage() {
   const [moved, setMoved] = useState(false)
@@ -26,7 +35,7 @@ export default function Homepage() {
   const intro = "introduction text"
   const [displayText, setDisplayText] = useState(intro)
   const textArr = ["text from array [0]", "text from array [1]", "text from array [02]", "text from array [3]"]
-  const linkedinImages = [linkedinHomepage, linkedinSearch]
+  const linkedinImages = [linkedinHomepage, linkedinme, linkedinSearch]
   const linkedInText = ["Feed Page", "Connections Page"]
   const spotifyImages = [spotifyAlbum, spotifySearch]
   const SpotifyText = ["Album Page", "Search Page"]
@@ -111,9 +120,9 @@ export default function Homepage() {
   return (
     <div className="homepage-wrapper">
       <div className="d-flex justify-content-center align-items-center full-height">
-        <div className="arch"></div>
+        {/* <div className="arch"></div>
         <div className=" arch-underlay"></div>
-        <div className=" arch-underlay-2"></div>
+        <div className=" arch-underlay-2"></div> */}
       </div>
 
       <div className="d-flex justify-content-between bottom-border top-section">
@@ -164,23 +173,65 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className="side-margin border-left max-height text-white w-100 d-flex justify-content-center align-items-center ">
-          {/* {textNumber} : {displayText} : angle{angle} */}
-
+        <div className="side-margin border-left ml-5 max-height text-white w-100 d-flex  align-items-center ">
           {moved === false && (
             <section className="hello">
               <h1>hi! i'm Aneesah, aka Annoinspace.</h1>
             </section>
           )}
           {moved === true && angle === 0 && <div>find me here</div>}
-          {angle === 90 && <div>linkedin images</div>}
-          {angle === 180 && <div>spotify images</div>}
-          {angle === 270 && <div>weather app</div>}
+          {angle === 90 && (
+            <div>
+              <h2>Full-Stack MERN + Redux</h2>
+              <div>
+                Project Features:
+                <ul>
+                  <li>Backend with Users, User posts, Likes implementation, Connections and Profile data</li>
+                  <li>
+                    Frontend with Login, Feed, User likes & comments, Customisable profile page, User search,
+                    Connections display & edit{" "}
+                  </li>
+                </ul>
+              </div>
+              <div className="d-flex gap-3 ">
+                <Image src={bootstrap} className="logoicon" />
+                <Image src={reactlogo} className="logoicon" />
+                <Image src={reduxlogo} className="logoicon" />
+                <Image src={nodejslogo} className="logoicon" />
+                <Image src={mongodblogo} className="logoicon" />
+              </div>
+            </div>
+          )}
+          {angle === 180 && (
+            <div>
+              <h2>Vanilla JS</h2>
+              <div>
+                Project Features:
+                <ul>
+                  <li>Homepage with suggested Albums & Artists</li>
+                  <li>Album Page loads with Selected Album, tracks can be played</li>
+                  <li>Artist Page with tracks from selected Artist</li>
+                  <li>Search Page</li>
+                </ul>
+              </div>
+              <div className="d-flex gap-3 ">
+                <Image src={htmllogo} className="logoicon" />
+                <Image src={csslogo} className="logoicon" />
+                <Image src={jslogo} className="logoicon" />
+                <Image src={bootstrap} className="logoicon" />
+              </div>
+            </div>
+          )}
+          {angle === 270 && (
+            <div>
+              <h2>React & Redux</h2>
+            </div>
+          )}
         </div>
       </div>
-      <div className="d-flex justify-content-between h-100 w-100">
-        <div className="h-100 w-100">
-          <div className="d-flex w-75 mll gap-4 text-white  ">
+      <div className="d-flex justify-content-center h-100 w-100 ">
+        <div className="h-100 w-100 d-flex justify-content-center align-items-center ">
+          <div className="d-flex w-75 mll  text-white  h-100">
             {moved === false && (
               <section className="w-75 intro d-flex flex-column">
                 <p>I have always dreamed of being a coder.</p>
@@ -188,38 +239,40 @@ export default function Homepage() {
                   After exploring a creative career path, I was left feeling like there was so much more I could do with
                   my creative & technical skillset, so I took the leap into web development and haven't looked back!{" "}
                 </p>
-
-                <p className="align-self-end">Take a brief look at a few of my favourite projects!</p>
+                <p>
+                  At the moment I work with the MERN stack, and enjoy working with it too, (React & Redux really do feel
+                  like a gift to humanity)! To add to these technologies, I am learning how to write Kotlin code in my
+                  spare time :)
+                </p>
+                <p className="align-self-end">
+                  Take a brief look at a few of my favourite (frontend) projects by pressing the arrow
+                  <br />
+                  For backend projects please check out my github!
+                </p>
 
                 <Image src={arrow} className="curly-arrow" />
               </section>
             )}
-            {images.map((image, i) => (
-              <div
-                key={i}
-                className=""
-                style={{
-                  minHeight: "250px",
-                  minWidth: "440px",
-                  backgroundImage: `url(${image})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  transition: "transform 1s ease-in-out",
-                  borderRadius: "10px"
-                }}
-              ></div>
-            ))}
-          </div>
-          <div className="d-flex w-75 mll gap-4  mt-1  ">
-            {captions.map((caption, i) => (
-              <div
-                key={i}
-                className=" text-center"
-                style={{ minWidth: "440px", color: "#c2baef", transition: "transform 1s ease-in-out" }}
-              >
-                {caption}
-              </div>
-            ))}
+            <div id="image-carousel" className="">
+              {images?.length > 0 && (
+                <Carousel
+                  id="carousel"
+                  controls={true}
+                  indicators={true}
+                  indicatorLabels={["prev", "next"]}
+                  nextLabel={null}
+                  prevLabel={null}
+                  touch={true}
+                  className="carousel-size"
+                >
+                  {images.map((image, i) => (
+                    <Carousel.Item key={i} className="carousel-size">
+                      <img className="d-block w-100 carousel-size" src={image} alt="" />
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              )}
+            </div>
           </div>
         </div>
         <div className=" circle-container-wrapper  ">
@@ -246,10 +299,7 @@ export default function Homepage() {
                   transition: "transform 1s ease-in-out",
                   backgroundImage: `url(${newimage})`
                 }}
-              >
-                {" "}
-                {moved ? <span>CIRCLE 1</span> : <span>INTRO</span>}
-              </div>
+              ></div>
               <div
                 className="circle c-2 d-flex justify-content-center align-items-center"
                 style={{
@@ -258,23 +308,20 @@ export default function Homepage() {
                 }}
               >
                 {" "}
-                <div className="">Linkedin Clone</div>
-                CIRCLE 2
+                <div className="purple-text-darker text-center">Linkedin Clone</div>
               </div>
               <div
                 className="circle c-3 d-flex justify-content-center align-items-center"
                 style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
               >
                 {" "}
-                <div className="">Spotify</div>
-                CIRCLE 3
+                <div className="purple-text-darker text-center">Spotify Clone</div>
               </div>
               <div
                 className="circle c-4 d-flex justify-content-center align-items-center"
                 style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
               >
-                <div className="">Weather App</div>
-                CIRCLE 4
+                <div className="purple-text-darker text-center">Weather App</div>
               </div>
             </div>
           </div>

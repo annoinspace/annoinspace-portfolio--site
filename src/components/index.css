@@ -8,9 +8,9 @@
   background-color: #32334b;
   min-height: 100vh;
 }
-.homepage-content-wrapper {
-  display: flex;
-  justify-content: space-between;
+.homepage-wrapper {
+  border-left: 1px solid rgba(220, 201, 166, 0.7);
+  border-right: 1px solid rgba(220, 201, 166, 0.7);
 }
 
 .top-section {
@@ -24,7 +24,7 @@
 }
 .mll {
   margin-left: 60px;
-  margin-top: 60px;
+  margin-top: 5vh;
 }
 .ml {
   margin-left: 20px;
@@ -74,6 +74,14 @@
   font-style: italic;
   font-size: 5em;
   animation: move-text 2s infinite alternate;
+}
+.purple-text-darker {
+  position: relative;
+  color: #ffffff;
+  font-family: "Baskervville", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 3em;
 }
 .purple-text-small {
   color: #aaa0e5;
@@ -343,6 +351,7 @@
   height: 400px;
   width: 400px;
   border: 5px solid white;
+  background-color: #32334b;
   aspect-ratio: 1/1;
   border-radius: 50%;
   position: absolute;
@@ -375,7 +384,7 @@
 .curly-arrow {
   position: absolute;
   z-index: 5;
-  top: 69%;
+  top: 80%;
   right: -10%;
   -webkit-filter: grayscale(1) invert(1);
   filter: grayscale(1) invert(1);
@@ -383,4 +392,53 @@
   height: 100px;
 
   opacity: 90%;
+}
+
+.carousel-size {
+  max-height: 360px;
+  max-width: 640px;
+  aspect-ratio: 16/9;
+}
+#carousel {
+  position: relative;
+}
+
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+.carousel-control-prev {
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.logoicon {
+  height: 60px;
+  min-width: 60px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 1550px) {
+  #main-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    background-color: #32334b;
+    min-height: 100vh;
+  }
+
+  .carousel-size {
+    max-height: 450px;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+  }
 }
