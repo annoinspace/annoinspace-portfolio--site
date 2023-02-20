@@ -8,10 +8,6 @@
   background-color: #32334b;
   min-height: 100vh;
 }
-.homepage-wrapper {
-  border-left: 1px solid rgba(220, 201, 166, 0.7);
-  border-right: 1px solid rgba(220, 201, 166, 0.7);
-}
 
 .top-section {
   height: 10vh;
@@ -434,6 +430,10 @@
     padding-right: 10vw;
     background-color: #32334b;
     min-height: 100vh;
+  }
+  .homepage-wrapper {
+    border-left: 1px solid rgba(220, 201, 166, 0.7);
+    border-right: 1px solid rgba(220, 201, 166, 0.7);
   }
 
   .carousel-size {
