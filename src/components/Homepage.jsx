@@ -119,16 +119,12 @@ export default function Homepage() {
 
   return (
     <div className="homepage-wrapper">
-      <div className="d-flex justify-content-center align-items-center full-height">
-        {/* <div className="arch"></div>
-        <div className=" arch-underlay"></div>
-        <div className=" arch-underlay-2"></div> */}
-      </div>
+      <div className="d-flex justify-content-center align-items-center full-height"></div>
 
       <div className="d-flex justify-content-between bottom-border top-section">
         <div className="side-margin border-right h-100"></div>
-        <div className="text-white d-flex w-100">
-          <div className=" d-flex justify-content-end align-items-center  w-100">
+        <div className="text-white d-flex w-100 ">
+          <div className=" d-flex justify-content-end align-items-center  w-100 links-wrapper">
             <a href="https://www.linkedin.com/in/aneesah-almas-khan/" style={{ color: "transparent" }}>
               <Image
                 src={linkedinLogo}
@@ -156,178 +152,203 @@ export default function Homepage() {
         </div>
         <div className="side-margin border-left h-100"></div>
       </div>
-      <div id="header-wrapper" className="d-flex bottom-border ">
-        <div id="header-left" className="side-margin border-right h-100  "></div>
-        <div
-          id="annoinspace-wrapper"
-          className="max-height d-flex flex-column justify-content-center align-items-center top"
-        >
-          <div id="anno-header" className="purple-text  mr h-100 mt-4 d-flex">
-            ANNO
-            <span className="flare"></span>
-          </div>
+      <div id="mobile-wrapper-top">
+        <div id="header-wrapper" className="d-flex bottom-border ">
+          <div id="header-left" className="side-margin border-right h-100  "></div>
+          <div
+            id="annoinspace-wrapper"
+            className="max-height d-flex flex-column justify-content-center align-items-center top"
+          >
+            <div id="anno-header" className="purple-text  mr h-100 mt-4 d-flex">
+              ANNO
+              <span className="flare"></span>
+            </div>
 
-          <div className="d-flex justify-content-center align-items-center anno">
-            <div className="d-flex flex-column ">
-              <span className="purple-text-small mb-0 p-0">in</span>
-              <WiStars className="purple-icon mt-0 p-0" />
-            </div>
-            <div className="purple-text ">Space</div>
-          </div>
-        </div>
-
-        <div
-          id="header-info"
-          className="side-margin border-left ml-5 max-height text-white w-100 d-flex  align-items-center "
-        >
-          {moved === false && (
-            <section className="hello">
-              <h1>hi! i'm Aneesah, aka Annoinspace.</h1>
-            </section>
-          )}
-          {moved === true && angle === 0 && <div>find me here</div>}
-          {angle === 90 && (
-            <div>
-              <h2>Full-Stack MERN + Redux</h2>
-              <div>
-                Project Features:
-                <ul>
-                  <li>Backend with Users, User posts, Likes implementation, Connections and Profile data</li>
-                  <li>
-                    Frontend with Login, Feed, User likes & comments, Customisable profile page, User search,
-                    Connections display & edit{" "}
-                  </li>
-                </ul>
+            <div className="d-flex justify-content-center align-items-center anno">
+              <div className="d-flex flex-column ">
+                <span className="purple-text-small mb-0 p-0">in</span>
+                <WiStars className="purple-icon mt-0 p-0" />
               </div>
-              <div className="d-flex gap-3 ">
-                <Image src={bootstrap} className="logoicon" />
-                <Image src={reactlogo} className="logoicon" />
-                <Image src={reduxlogo} className="logoicon" />
-                <Image src={nodejslogo} className="logoicon" />
-                <Image src={mongodblogo} className="logoicon" />
-              </div>
-            </div>
-          )}
-          {angle === 180 && (
-            <div>
-              <h2>Vanilla JS</h2>
-              <div>
-                Project Features:
-                <ul>
-                  <li>Homepage with suggested Albums & Artists</li>
-                  <li>Album Page loads with Selected Album, tracks can be played</li>
-                  <li>Artist Page with tracks from selected Artist</li>
-                  <li>Search Page</li>
-                </ul>
-              </div>
-              <div className="d-flex gap-3 ">
-                <Image src={htmllogo} className="logoicon" />
-                <Image src={csslogo} className="logoicon" />
-                <Image src={jslogo} className="logoicon" />
-                <Image src={bootstrap} className="logoicon" />
-              </div>
-            </div>
-          )}
-          {angle === 270 && (
-            <div>
-              <h2>React & Redux</h2>
-            </div>
-          )}
-        </div>
-      </div>
-      <div id="bottom-wrapper" className="d-flex justify-content-center h-100 w-100 ">
-        <div className="h-100 w-100 d-flex justify-content-center align-items-center ">
-          <div id="text-carousel-wrapper" className="d-flex w-75 mll  text-white  h-100">
-            {moved === false && (
-              <section className="w-75 intro d-flex flex-column">
-                <p>I have always dreamed of being a coder.</p>
-                <p>
-                  After exploring a creative career path, I was left feeling like there was so much more I could do with
-                  my creative & technical skillset, so I took the leap into web development and haven't looked back!{" "}
-                </p>
-                <p>
-                  At the moment I work with the MERN stack, and enjoy working with it too, (React & Redux really do feel
-                  like a gift to humanity)! To add to these technologies, I am learning how to write Kotlin code in my
-                  spare time :)
-                </p>
-                <p className="align-self-end">
-                  Take a brief look at a few of my favourite (frontend) projects by pressing the arrow
-                  <br />
-                  For backend projects please check out my github!
-                </p>
-
-                <Image src={arrow} className="curly-arrow" />
-              </section>
-            )}
-            <div id="image-carousel" className="">
-              {images?.length > 0 && (
-                <Carousel
-                  id="carousel"
-                  controls={true}
-                  indicators={true}
-                  indicatorLabels={["prev", "next"]}
-                  nextLabel={null}
-                  prevLabel={null}
-                  touch={true}
-                  className="carousel-size"
-                >
-                  {images.map((image, i) => (
-                    <Carousel.Item key={i} className="carousel-size">
-                      <img className="d-block w-100 carousel-size" src={image} alt="" />
-                    </Carousel.Item>
-                  ))}
-                </Carousel>
-              )}
+              <div className="purple-text ">Space</div>
             </div>
           </div>
-        </div>
-        <div className=" circle-container-wrapper  ">
-          {up && (
-            <span onClick={handleHover} className="arrow" id="arrow-1">
-              <BsFillArrowRightCircleFill />
-            </span>
-          )}
-          {down && (
-            <span onClick={handleHoverAnti} className="arrow" id="arrow-2">
-              <BsFillArrowDownCircleFill />
-            </span>
-          )}
 
           <div
-            className="d-flex flex-wrap circle-container align-self-end justify-content-between "
-            style={{ transform: `rotate(${angle}deg)` }}
+            id="header-info"
+            className="side-margin border-left ml-5 max-height text-white w-100 d-flex  align-items-center "
           >
-            <div className=" circle-connection">
-              <div
-                className="circle c-1"
-                style={{
-                  transform: `rotate(-${angle}deg)`,
-                  transition: "transform 1s ease-in-out",
-                  backgroundImage: `url(${newimage})`
-                }}
-              ></div>
-              <div
-                className="circle c-2 d-flex justify-content-center align-items-center"
-                style={{
-                  transform: `rotate(-${angle}deg)`,
-                  transition: "transform 1s ease-in-out"
-                }}
-              >
-                {" "}
-                <div className="purple-text-darker text-center">Linkedin Clone</div>
+            {moved === false && (
+              <section className="hello">
+                <h1 className="text-center">hi! i'm Aneesah, aka Annoinspace.</h1>
+              </section>
+            )}
+            {moved === true && angle === 0 && (
+              <section className="hello">
+                <h1 className="text-center">Thank you for viewing my selected projects!</h1>
+              </section>
+            )}
+            {angle === 90 && (
+              <div className="project-info-wrapper">
+                <h2>Full-Stack MERN + Redux</h2>
+                <div>
+                  Project Features:
+                  <ul>
+                    <li>Backend with Users, User posts, Likes implementation, Connections and Profile data</li>
+                    <li>
+                      Frontend with Login, Feed, User likes & comments, Customisable profile page, User search,
+                      Connections display & edit{" "}
+                    </li>
+                  </ul>
+                </div>
+                <div className="d-flex gap-3 icon-wrapper">
+                  <Image src={bootstrap} className="logoicon" />
+                  <Image src={reactlogo} className="logoicon" />
+                  <Image src={reduxlogo} className="logoicon" />
+                  <Image src={nodejslogo} className="logoicon" />
+                  <Image src={mongodblogo} className="logoicon" />
+                </div>
               </div>
-              <div
-                className="circle c-3 d-flex justify-content-center align-items-center"
-                style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
-              >
-                {" "}
-                <div className="purple-text-darker text-center">Spotify Clone</div>
+            )}
+            {angle === 180 && (
+              <div className="project-info-wrapper">
+                <h2>Vanilla JS</h2>
+                <div>
+                  Project Features:
+                  <ul>
+                    <li>Homepage with suggested Albums & Artists</li>
+                    <li>Album Page loads with Selected Album, tracks can be played</li>
+                    <li>Artist Page with tracks from selected Artist</li>
+                    <li>Search Page</li>
+                  </ul>
+                </div>
+                <div className="d-flex gap-3 icon-wrapper">
+                  <Image src={htmllogo} className="logoicon" />
+                  <Image src={csslogo} className="logoicon" />
+                  <Image src={jslogo} className="logoicon" />
+                  <Image src={bootstrap} className="logoicon" />
+                </div>
               </div>
-              <div
-                className="circle c-4 d-flex justify-content-center align-items-center"
-                style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
-              >
-                <div className="purple-text-darker text-center">Weather App</div>
+            )}
+            {angle === 270 && (
+              <div className="project-info-wrapper">
+                <h2>React & Redux</h2>
+                <div>
+                  Project Features:
+                  <ul>
+                    <li>Resting state when there are no active searches</li>
+                    <li>Live weather data using external API</li>
+                    <li>Custom icons respresenting weather conditions</li>
+                  </ul>
+                </div>
+                <div className="d-flex gap-3 icon-wrapper">
+                  <Image src={htmllogo} className="logoicon" />
+                  <Image src={csslogo} className="logoicon" />
+                  <Image src={jslogo} className="logoicon" />
+                  <Image src={reactlogo} className="logoicon" />
+                  <Image src={reduxlogo} className="logoicon" />
+                  <Image src={bootstrap} className="logoicon" />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      <div id="mobile-bottom-wrapper">
+        <div id="bottom-wrapper" className="d-flex justify-content-center h-100 w-100 ">
+          <div className="h-100 w-100 d-flex justify-content-center align-items-center ">
+            <div id="text-carousel-wrapper" className="d-flex w-75 mll  text-white  h-100">
+              {moved === false && (
+                <section className="w-75 intro d-flex flex-column">
+                  <p>I have always dreamed of being a coder.</p>
+                  <p>
+                    After exploring a creative career path, I was left feeling like there was so much more I could do
+                    with my creative & technical skillset, so I took the leap into web development and haven't looked
+                    back!{" "}
+                  </p>
+                  <p>
+                    At the moment I work with the MERN stack, and enjoy working with it too, (React & Redux really do
+                    feel like a gift to humanity)! To add to these technologies, I am learning how to write Kotlin code
+                    in my spare time :)
+                  </p>
+                  <p className="align-self-end">
+                    Take a brief look at a few of my favourite (frontend) projects by pressing the arrow
+                    <br />
+                    For backend projects please check out my github!
+                  </p>
+
+                  <Image src={arrow} className="curly-arrow" />
+                </section>
+              )}
+              <div id="image-carousel" className="">
+                {images?.length > 0 && (
+                  <Carousel
+                    id="carousel"
+                    controls={true}
+                    indicators={true}
+                    indicatorLabels={["prev", "next"]}
+                    nextLabel={null}
+                    prevLabel={null}
+                    touch={true}
+                    className="carousel-size"
+                  >
+                    {images.map((image, i) => (
+                      <Carousel.Item key={i} className="carousel-size">
+                        <img className="d-block w-100 carousel-size" src={image} alt="" />
+                      </Carousel.Item>
+                    ))}
+                  </Carousel>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="circle-container-wrapper">
+            {up && (
+              <span onClick={handleHover} className="arrow" id="arrow-1">
+                <BsFillArrowRightCircleFill />
+              </span>
+            )}
+            {down && (
+              <span onClick={handleHoverAnti} className="arrow" id="arrow-2">
+                <BsFillArrowDownCircleFill />
+              </span>
+            )}
+
+            <div
+              className="d-flex flex-wrap circle-container align-self-end justify-content-between "
+              style={{ transform: `rotate(${angle}deg)` }}
+            >
+              <div className=" circle-connection">
+                <div
+                  className="circle c-1"
+                  style={{
+                    transform: `rotate(-${angle}deg)`,
+                    transition: "transform 1s ease-in-out",
+                    backgroundImage: `url(${newimage})`
+                  }}
+                ></div>
+                <div
+                  className="circle c-2 d-flex justify-content-center align-items-center"
+                  style={{
+                    transform: `rotate(-${angle}deg)`,
+                    transition: "transform 1s ease-in-out"
+                  }}
+                >
+                  {" "}
+                  <div className="purple-text-darker text-center">Linkedin Clone</div>
+                </div>
+                <div
+                  className="circle c-3 d-flex justify-content-center align-items-center"
+                  style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
+                >
+                  {" "}
+                  <div className="purple-text-darker text-center">Spotify Clone</div>
+                </div>
+                <div
+                  className="circle c-4 d-flex justify-content-center align-items-center"
+                  style={{ transform: `rotate(-${angle}deg)`, transition: "transform 1s ease-in-out" }}
+                >
+                  <div className="purple-text-darker text-center">Weather App</div>
+                </div>
               </div>
             </div>
           </div>
