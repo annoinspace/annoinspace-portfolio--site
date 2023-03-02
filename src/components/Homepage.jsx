@@ -12,7 +12,7 @@ import spotifySearch from "../assets/search-page.png"
 import { WiStars } from "react-icons/wi"
 import weather from "../assets/weather-app.png"
 import weatherSearch from "../assets/weather-app-search.png"
-import { BsFillArrowRightCircleFill, BsFillArrowDownCircleFill } from "react-icons/bs"
+import { BsFillArrowRightCircleFill, BsFillArrowDownCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs"
 import arrow from "../assets/arrow.png"
 import bootstrap from "../assets/Bootstrap-logo.png"
 import reactlogo from "../assets/react-logo.png"
@@ -41,20 +41,25 @@ export default function Homepage() {
   const SpotifyText = ["Album Page", "Search Page"]
   const weatherAppImages = [weather, weatherSearch]
   const weatherText = ["Initial Search Page", "Results Page"]
+  const [arrowText, setArrowText] = useState("View selected projects")
 
   const handleImages = () => {
     if (angle === 90) {
       setImages(linkedinImages)
       setCaptions(linkedInText)
+      setArrowText("LinkedIn Clone")
     } else if (angle === 180) {
       setImages(spotifyImages)
       setCaptions(SpotifyText)
+      setArrowText("Spotify Clone")
     } else if (angle === 270) {
       setImages(weatherAppImages)
       setCaptions(weatherText)
+      setArrowText("Weather App")
     } else {
       setImages([])
       setCaptions([])
+      setArrowText("View selected projects")
     }
   }
 
@@ -255,10 +260,10 @@ export default function Homepage() {
       </div>
       <div id="mobile-bottom-wrapper">
         <div id="bottom-wrapper" className="d-flex justify-content-center h-100 w-100 ">
-          <div className="h-100 w-100 d-flex justify-content-center align-items-center ">
-            <div id="text-carousel-wrapper" className="d-flex w-75 mll  text-white  h-100">
+          <div className="h-100 w-100 d-flex justify-content-center align-items-center text-carousel-wrapper-wrapper">
+            <div id="text-carousel-wrapper" className="d-flex mll text-white  h-100">
               {moved === false && (
-                <section className="w-75 intro d-flex flex-column">
+                <section className="intro d-flex flex-column text-section">
                   <p>I have always dreamed of being a coder.</p>
                   <p>
                     After exploring a creative career path, I was left feeling like there was so much more I could do
@@ -271,9 +276,8 @@ export default function Homepage() {
                     in my spare time :)
                   </p>
                   <p className="align-self-end">
-                    Take a brief look at a few of my favourite (frontend) projects by pressing the arrow
-                    <br />
-                    For backend projects please check out my github!
+                    Take a brief look at a few of my favourite (frontend) projects. For backend projects please check
+                    out my github!
                   </p>
 
                   <Image src={arrow} className="curly-arrow" />
@@ -307,14 +311,18 @@ export default function Homepage() {
                 <BsFillArrowRightCircleFill />
               </span>
             )}
+            <div id="mobile-project-heading">
+              <div>{arrowText}</div>
+            </div>
             {down && (
               <span onClick={handleHoverAnti} className="arrow" id="arrow-2">
-                <BsFillArrowDownCircleFill />
+                <BsFillArrowDownCircleFill className="arrow-display-1" />
+                <BsFillArrowLeftCircleFill className="arrow-display-2" />
               </span>
             )}
 
             <div
-              className="d-flex flex-wrap circle-container align-self-end justify-content-between "
+              className="d-flex flex-wrap circle-container align-self-end justify-content-between c-w"
               style={{ transform: `rotate(${angle}deg)` }}
             >
               <div className=" circle-connection">
@@ -354,6 +362,7 @@ export default function Homepage() {
           </div>
         </div>
       </div>
+      <div id="footer">annoinspace</div>
     </div>
   )
 }
