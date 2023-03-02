@@ -444,7 +444,9 @@
   padding: 10px;
   border-radius: 10px;
 }
-
+#footer {
+  display: none;
+}
 @media screen and (min-width: 1550px) {
   #main-container {
     padding-left: 10vw;
@@ -461,6 +463,9 @@
     max-height: 450px;
     max-width: 800px;
     aspect-ratio: 16/9;
+  }
+  #footer {
+    display: none;
   }
 }
 @media screen and (max-width: 800px) {
