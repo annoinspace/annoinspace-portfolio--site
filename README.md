@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# My Protfolio Site!
+
+This portflio shows a few projects I have created and is a little experimental in it's design.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
